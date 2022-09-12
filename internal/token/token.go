@@ -1,5 +1,6 @@
 package token
 
+//go:generate stringer -type=Type
 const (
 	Hiragana Type = iota
 	Katakana
@@ -9,24 +10,6 @@ const (
 )
 
 type Type int
-
-func (i Type) String() (ret string) {
-	switch i {
-	case Hiragana:
-		ret = "Hiragana"
-	case Katakana:
-		ret = "Katakana"
-	case Kanji:
-		ret = "Kanji"
-	case Okurigana:
-		ret = "Okurigana"
-	case Q:
-		ret = "Q"
-	default:
-		ret = "?"
-	}
-	return
-}
 
 type Tokenizer struct {
 	b                  []byte
